@@ -85,12 +85,22 @@
     margin-top: 10%;
   }
 
+  .el-header img {
+    max-width: 100%;
+    max-height: 200px;
+  }
+
   .el-main {
     margin-top: 8%;
   }
 
   .el-footer {
     margin-top: 5%;
+  }
+
+  .el-footer img {
+    max-width: 100%;
+    max-height: 150px;
   }
 
   .el-button {
