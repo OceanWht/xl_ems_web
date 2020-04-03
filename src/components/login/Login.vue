@@ -18,11 +18,11 @@
           </el-form-item>
           <el-form-item>
             <el-col :span="5" :offset="8">
-              <el-checkbox label="记住密码"></el-checkbox>
+              <el-checkbox label="记住密码" v-model="form.isRemember"></el-checkbox>
             </el-col>
           </el-form-item>
           <el-form-item>
-              <el-button type="success">登录</el-button>
+              <el-button type="success" @click="login">登录</el-button>
           </el-form-item>
         </el-form>
       </el-main>
@@ -41,6 +41,7 @@
         form:{
           name:'',
           pwd:'',
+          isRemember:''
         },
         fullHeight: document.documentElement.clientHeight //获取屏幕高度
       }
@@ -61,12 +62,19 @@
       this.get_bodyHeight()
     },
     methods :{
+      login() {
+        let name = this.form.name;
+        let pwd = this.form.pwd;
+        console.log('name',name);
+        console.log('pwd',pwd);
+        this.$router.push({ name: 'Index',params:{name:name,pwd:pwd}}); //带参传递参数
+      },
       get_bodyHeight () {//动态获取浏览器高度
-        const that = this
+        const that = this;
         window.onresize = () => {
           return (() => {
-            window.fullHeight = document.documentElement.clientHeight
-            that.fullHeight = window.fullHeight
+            window.fullHeight = document.documentElement.clientHeight;
+            that.fullHeight = window.fullHeight;
           })()
         }
       }
@@ -87,7 +95,7 @@
 
   .el-header img {
     max-width: 100%;
-    max-height: 200px;
+    max-height: 200px; /*图片自适应*/
   }
 
   .el-main {
@@ -100,15 +108,15 @@
 
   .el-footer img {
     max-width: 100%;
-    max-height: 150px;
+    max-height: 150px;  /*图片自适应*/
   }
 
   .el-button {
     width: 16.5%;
   }
 
-  .imgs {
+  /*.imgs {
     position: relative;
-  }
+  }*/
 
 </style>

@@ -6,14 +6,17 @@ import router from './router'
 import ElementUI  from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import './utils/flexible'
+import EmsHeader from './components/header/EmsHeader'
+
 
 Vue.config.productionTip = false
-Vue.use(ElementUI)
+Vue.use(ElementUI);
+Vue.component('ems-header',EmsHeader);
 
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
   router,
-  components: { App },
+  components: {App},
   template: '<App/>'
 })
